@@ -1,0 +1,176 @@
+:root {
+  --bg-color: #191970;     /* Midnight Blue */
+  --card-color: #ffffff;   /* White */
+  --text-color: #000000;   /* Black */
+  --button-bg: #000000;    /* Black Buttons */
+  --button-text: #ffffff;  /* White Text */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--card-color);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding-top: 50px;
+  overflow-x: hidden;
+  transition: background 0.5s ease;
+}
+
+.container {
+  background-color: var(--bg-color);
+  padding: 30px;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 15px;
+  animation: fadeIn 1s ease;
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  text-align: center;
+  color: var(--card-color);
+  margin-bottom: 20px;
+  font-size: 2rem;
+  animation: glowText 1.5s infinite alternate;
+}
+
+.input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input-box input,
+.input-box button {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.input-box input {
+  background-color: var(--card-color);
+  color: var(--text-color);
+}
+
+.input-box button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.input-box button:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+ul#task-list {
+  list-style: none;
+}
+
+.task {
+  background-color: var(--card-color);
+  color: var(--text-color);
+  padding: 15px 20px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  animation: slideUp 0.4s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.task.completed .text {
+  text-decoration: line-through;
+  color: #555;
+  opacity: 0.7;
+}
+
+.task .datetime {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.buttons {
+  margin-top: 8px;
+  display: flex;
+  gap: 10px;
+}
+
+.buttons button {
+  flex: 1;
+  padding: 8px;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.buttons button:hover {
+  opacity: 0.85;
+  transform: scale(1.05);
+}
+
+.editing {
+  background-color: #fef9c3;
+}
+
+/* Sky canvas */
+#bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background: #191970;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glowText {
+  from {
+    text-shadow: 0 0 5px #ffffff;
+  }
+  to {
+    text-shadow: 0 0 15px #ffffff;
+  }
+}
